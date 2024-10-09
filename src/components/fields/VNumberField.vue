@@ -1,0 +1,27 @@
+<script setup lang="ts">
+import VField from './VField.vue'
+
+defineProps<{
+    label: string
+    placeholder: string
+    min?: number
+    max?: number
+    step?: number
+}>()
+
+const modelValue = defineModel<number>({ required: true })
+</script>
+
+<template>
+    <VField :label>
+        <input
+            v-model="modelValue"
+            class="w-full appearance-none bg-button-normal px-2 py-1 transition-colors placeholder:italic placeholder:text-text-disabled hover:bg-button-highlighted focus:outline-none focus:ring-1 focus:ring-text-normal active:bg-button-pressed"
+            type="number"
+            :placeholder
+            :min
+            :max
+            :step
+        />
+    </VField>
+</template>

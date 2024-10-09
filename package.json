@@ -1,0 +1,45 @@
+{
+  "name": "sonolus-level-packer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "check-type": "vue-tsc --build --force",
+    "check-lint": "eslint .",
+    "check-format": "prettier . --check",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@sinclair/typebox": "^0.33.15",
+    "@sonolus/core": "~7.9.1",
+    "@sonolus/free-pack": "~1.1.5",
+    "file-saver": "^2.0.5",
+    "jszip": "^3.10.1",
+    "pako": "^2.1.0",
+    "vue": "^3.5.11"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.12.0",
+    "@tsconfig/node20": "^20.1.4",
+    "@types/eslint__js": "^8.42.3",
+    "@types/file-saver": "^2.0.7",
+    "@types/node": "^20.16.11",
+    "@types/pako": "^2.0.3",
+    "@vitejs/plugin-vue": "^5.1.4",
+    "@vue/tsconfig": "^0.5.1",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.12.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-vue": "^9.28.0",
+    "prettier": "^3.3.3",
+    "prettier-plugin-organize-imports": "^4.1.0",
+    "prettier-plugin-tailwindcss": "^0.6.8",
+    "tailwindcss": "^3.4.13",
+    "typescript": "~5.6.3",
+    "typescript-eslint": "^8.8.1",
+    "vite": "^5.4.8",
+    "vite-plugin-arraybuffer": "^0.0.8",
+    "vue-tsc": "^2.1.6"
+  }
+}
