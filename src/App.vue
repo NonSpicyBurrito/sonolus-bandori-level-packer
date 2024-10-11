@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { version } from '@sonolus/core'
+import { version as engineVersion } from 'sonolus-bandori-engine'
 import { ref } from 'vue'
 import { version as appVersion } from '../package.json'
 import VLink from './components/VLink.vue'
@@ -16,6 +17,8 @@ const rating = ref(0)
 const cover = ref<File>()
 const bgm = ref<File>()
 const preview = ref<File>()
+const chart = ref('')
+const offset = ref(0)
 const description = ref('')
 
 const state = ref<{ type: 'packing' } | { type: 'success' } | { type: 'error'; error: unknown }>()
@@ -32,6 +35,8 @@ const onPack = async () => {
             cover: cover.value,
             bgm: bgm.value,
             preview: preview.value,
+            chart: chart.value,
+            offset: offset.value,
             description: description.value,
         })
 
@@ -53,14 +58,20 @@ const onClose = () => {
 </script>
 
 <template>
-    <h1 class="text-center text-xl font-bold sm:text-3xl">Sonolus Level Packer</h1>
+    <h1 class="text-center text-xl font-bold sm:text-3xl">Sonolus Bandori Level Packer</h1>
 
     <p>
-        See README.md. <br />
+        Pack your BanG Dream! Girls Band Party! levels into Sonolus collection packages. <br />
+        For publishing and sharing your Bandori levels, take a look at:
+        <VLink url="https://bestdori.com/community/charts" /> <br />
         <br />
         Sonolus: <br />
         Version {{ version.sonolus }} <br />
         <VLink url="https://sonolus.com" /> <br />
+        <br />
+        Engine: <br />
+        Version {{ engineVersion }} <br />
+        <VLink url="https://github.com/NonSpicyBurrito/sonolus-bandori-engine" /> <br />
         <br />
         Packer: <br />
         Version {{ appVersion }} <br />
@@ -95,7 +106,7 @@ const onClose = () => {
                 label="Rating"
                 placeholder="Enter level rating..."
                 :min="0"
-                :max="100"
+                :max="35"
                 :step="1"
             />
 
@@ -104,6 +115,14 @@ const onClose = () => {
             <VFileField v-model="bgm" label="Bgm" accept="audio/*" />
 
             <VFileField v-model="preview" label="Preview" accept="audio/*" />
+
+            <VTextAreaField
+                v-model="chart"
+                label="Chart (Bestdori)"
+                placeholder="Enter level chart..."
+            />
+
+            <VNumberField v-model="offset" label="Offset" placeholder="Enter level offset..." />
 
             <VTextAreaField
                 v-model="description"
