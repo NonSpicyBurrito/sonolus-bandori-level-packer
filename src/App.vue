@@ -121,9 +121,15 @@ const onClose = () => {
                 v-model="chart"
                 label="Chart (Bestdori)"
                 placeholder="Enter level chart..."
+                required
             />
 
-            <VNumberField v-model="offset" label="Offset" placeholder="Enter level offset..." />
+            <VNumberField
+                v-model="offset"
+                label="Offset"
+                placeholder="Enter level offset..."
+                required
+            />
 
             <VTextAreaField
                 v-model="description"
